@@ -1,0 +1,263 @@
+.wrapper {
+  min-width: 768px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  font-size: 1rem;
+}
+
+.wrapper * {
+  color: #fff;
+  box-sizing: border-box;
+  overflow-y: inherit;
+  font-family: Verdana, Arial, Tahoma, Serif;
+}
+
+.section_iconBar,
+.server_header,
+.server_list,
+.server_user,
+.channel_header,
+.channel_display,
+.status_content {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.section_iconBar,
+.server_content,
+.server_channelsList,
+.server_userNameBox,
+.channel_content,
+.channel_display,
+.status_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.section_iconBar {
+  width: 5rem;
+  height: 100vh;
+  background-color: #1b1b1b;
+}
+
+.section_server_channel,
+.channel,
+.server_header,
+.server_user,
+.server_userInfo,
+.server_userTool,
+.channel_header,
+.channel_form {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.server_content {
+  padding-bottom: 4rem;
+}
+
+.section_server_channel {
+  flex: 1;
+  width: calc(100% - 5rem);
+  height: 100vh;
+}
+
+.server,
+.server_header,
+.server_user {
+  width: 25%;
+  min-width: 190px;
+}
+
+.server_header,
+.server_channelsList {
+  background-color: #2d2d2d;
+}
+
+.server_header,
+.server_user,
+.server_list,
+.server_user,
+.channel_header {
+  height: 3rem;
+  line-height: 3rem;
+}
+
+.server_header,
+.channel_header {
+  width: 100%;
+  position: fixed;
+  font-size: 1rem;
+  border-bottom: 2px solid black;
+}
+
+.server_channelsList {
+  height: calc(100% - 5rem);
+  padding-right: 0.5rem;
+}
+
+.server_list {
+  overflow-y: hidden;
+  border-radius: 5px;
+}
+
+.server_list,
+.server_list > * {
+  color: #9c9c9c;
+}
+
+.server_list:hover {
+  cursor: pointer;
+  background: #565656;
+  color: white;
+}
+
+.server_list:hover > * {
+  color: white;
+}
+
+.server_user,
+.channel_form {
+  position: fixed;
+  bottom: 0;
+}
+
+.server_user {
+  background: #080808;
+  min-width: 172px;
+  height: 4rem;
+  line-height: 4rem;
+}
+
+.server_userInfo {
+  width: 15%;
+}
+
+.server_userImageBox {
+  width: 2.5rem;
+  height: 100%;
+  position: relative;
+  padding: 0.9rem 0;
+}
+
+.server_userImage {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #c8c0ff;
+}
+
+.server_status {
+  position: absolute;
+  content: '';
+  right: 2px;
+  bottom: 10px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: white;
+}
+
+.server_userNameBox {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  width: 3rem;
+  height: 100%;
+  padding-left: 0.5rem;
+}
+
+.server_userNameBox * {
+  color: #fff;
+  list-style: none;
+  line-height: 1;
+  font-size: .9rem;
+  height: 50%;
+}
+
+.server_userNameBox > *:first-child {
+  padding-top: 1rem;
+}
+
+.server_userNameBox > *:nth-child(2) {
+  padding-bottom: 1rem;
+  color: #9c9c9c;
+}
+
+.server_userTool {
+  width: 5%;
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.server_userTool > * {
+  display: flex;
+  vertical-align: middle;
+}
+
+.server_toolBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.channel {
+  flex: 1;
+  width: 75%;
+  min-width: 573px;
+  flex-wrap: wrap;
+}
+
+.server_list:hover,
+.channel_header,
+.channel_content,
+.channel_form {
+  background-color: #343434;
+}
+
+.channel_display {
+  padding: 3rem 0 6rem;
+}
+
+.channel_outputBox {
+  border-bottom: 1px solid #585858;
+  padding: 1rem 0.5rem;
+}
+
+.channel_outputBox:last-child {
+  border-bottom: none;
+}
+
+.channel_content,
+.channel_form {
+  width: 45vw;
+  min-width: 350px;
+}
+
+.channel_form {
+  height: 5rem;
+  padding: 0 1rem 1rem;
+}
+
+.channel_input {
+  width: calc(calc(100% - 6rem)/2);
+}
+
+.channel_btn {
+  width: 6rem;
+  cursor: pointer;
+}
+
+.status_content {
+  flex: 1;
+  background: pink
+}
