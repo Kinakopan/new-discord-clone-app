@@ -59,7 +59,7 @@
 }
 
 .server_content {
-  padding-bottom: 4rem;
+  padding: 3rem 0 4rem;
 }
 
 .section_server_channel {
@@ -71,8 +71,8 @@
 .server,
 .server_header,
 .server_user {
-  width: 25%;
-  min-width: 190px;
+  width: 25vw;
+  min-width: 200px;
 }
 
 .server_header,
@@ -130,13 +130,14 @@
 
 .server_user {
   background: #080808;
-  min-width: 172px;
+  width: 25vw;
+  min-width: 200px;
   height: 4rem;
   line-height: 4rem;
 }
 
 .server_userInfo {
-  width: 15%;
+  min-width: 6.5rem;
 }
 
 .server_userImageBox {
@@ -213,7 +214,7 @@
 .channel {
   flex: 1;
   width: 75%;
-  min-width: 573px;
+  min-width: 563px;
   flex-wrap: wrap;
 }
 
@@ -259,5 +260,4 @@
 
 .status_content {
   flex: 1;
-  background: pink
 }
