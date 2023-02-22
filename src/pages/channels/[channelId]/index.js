@@ -19,6 +19,7 @@ export default function Channel({channels, channelName, channelId, messages: ini
     const [text, setText] = useState('')
     const [messages, setMessages] = useState(initialMessages)
     const [newMessage, setNewMessage] = useState(initialMessages)
+    const [content, setContent] = useState([])
 
     const handleSubmit = async (e) => {
       e.preventDefault()
@@ -30,7 +31,7 @@ export default function Channel({channels, channelName, channelId, messages: ini
       setMessages([...messages, newMessage])
     }
 
-    const handleServerClickSubmit = async ()=> {
+    const handleServerClickSubmit = async (channelId)=> {
       console.log('===click channel===', channelId);
       const newResult = await axios.get(`/api/channels/${channelId}/messages`, {
           userName, text
@@ -73,8 +74,9 @@ export default function Channel({channels, channelName, channelId, messages: ini
                         className={styles.server_list}
                         key={channel.id}>
                         # <Link
+                          className={styles.server_list_link}
                           href={`/channels/${channel.id}`}
-                          onClick={handleServerClickSubmit}
+                          onClick={()=>{handleServerClickSubmit(channel.id)}}
                           >
                           {channel.name}
                         </Link>
