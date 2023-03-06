@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from "@/styles/Home.module.css";
 import { getAllChannels, getAllMessages, getChannelById } from "@/database";
+import CreateChannel from '@/components/createchannel';
+
 
 function wait(seconds) {
     return new Promise((resolve) => {
@@ -42,6 +44,15 @@ export default function Channel({channels, channelName, channelId, messages: ini
       setNewMessage(newMessage)
     }
 
+  const [channelFormIsOpen, setChannelFormIsOpen] = useState(false);
+  function crossHandler() {
+    if(channelFormIsOpen) {
+      setChannelFormIsOpen(false)
+    } else {
+      setChannelFormIsOpen(true)
+    }
+  }
+
     // useEffect(() => {
     //   async function fetchMessages() {
     //     const messages = await getAllMessages(channelId)
@@ -51,6 +62,12 @@ export default function Channel({channels, channelName, channelId, messages: ini
     //   }
     //   fetchMessages()
     // }, [channelId])
+
+    async function addNewChannel(newChannelName) {
+      const result = await axios.post(`/api/channels`, {
+        "name":newChannelName
+      });
+    }
 
     useEffect(() => {
       async ()=> {
@@ -66,6 +83,12 @@ export default function Channel({channels, channelName, channelId, messages: ini
           <div  className={styles.server}>
             <h2 className={styles.server_header}>
               Sever header Here
+            <img
+              className={styles.icon_add}
+              src='/icons/add.png'
+              alt="icon to add a channel"
+              onClick={crossHandler}/>
+            {channelFormIsOpen && <CreateChannel addNewChannel={addNewChannel}/>}
             </h2>
             <div className={styles.server_content}>
               <ul className={styles.server_channelsList}>
