@@ -15,13 +15,13 @@ function wait(seconds) {
     })
 }
 
-export default function Channel({channels, channelName, channelId, messages: initialMessages}) {
+export default function Channel({channels: initialChannels, channelName, channelId, messages: initialMessages}) {
 
     const [userName, setUserName] = useState('')
     const [text, setText] = useState('')
     const [messages, setMessages] = useState(initialMessages)
     const [newMessage, setNewMessage] = useState(initialMessages)
-    const [content, setContent] = useState([])
+    const [channels, setChannels] = useState(initialChannels)
 
     const handleSubmit = async (e) => {
       e.preventDefault()
@@ -68,6 +68,15 @@ export default function Channel({channels, channelName, channelId, messages: ini
         "name":newChannelName
       });
     }
+
+    useEffect (()=> {
+      // client side code --> run in the browser
+      axios.get("/api/channels")
+        .then((response) => {
+          const channels = response.data
+          setChannels(channels)
+        })
+    }, [])
 
     useEffect(() => {
       async ()=> {
